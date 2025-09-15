@@ -273,7 +273,8 @@
           top: auto;
         }
         .gallery {
-          grid-template-columns: repeat(2, 1fr);
+          /* 【关键修改】将网格列数改为1，实现单列布局 */
+          grid-template-columns: 1fr;
           grid-template-rows: none;
         }
         .gallery-item {
@@ -357,8 +358,6 @@
               </p>
             </section>
           </main>
-
-          <!-- Footer has been removed -->
         </div>
       </div>
     </div>
