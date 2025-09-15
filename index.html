@@ -26,8 +26,9 @@
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        color: #333; /* 外部默认文字颜色 */
-        background: linear-gradient(-45deg, #fef6ff, #f9efff, #f2e9f7, #f0f5fa);
+        color: #5a5a5a; /* 外部默认文字颜色调整为深灰色 */
+        /* 【核心修改】背景色调整为以#FDF7FF为主的淡雅渐变 */
+        background: linear-gradient(-45deg, #fdf7ff, #fdeff9, #f8f2fe, #f7f9fd);
         background-size: 400% 400%;
         animation: gradientBG 20s ease infinite;
         overflow-x: hidden;
@@ -51,22 +52,22 @@
         width: calc(100% - 40px);
         margin: 20px;
         padding: 30px;
-        /* 【核心修改】内部背景改为更深、饱和度更高的半透明深紫色，形成强烈对比 */
-        background: rgba(85, 75, 95, 0.65);
+        /* 【核心修改】内部背景改为非常淡的、几乎透明的白色，营造轻盈感 */
+        background: rgba(255, 255, 255, 0.65);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         border-radius: 20px;
-        /* 【核心修改】精致的亮色边框，模拟“边缘光”效果 */
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        /* 【核心修改】增强的悬浮阴影，更深、更广 */
-        box-shadow: 0 20px 60px -10px rgba(50, 40, 60, 0.35);
+        /* 【核心修改】边框改为更柔和的淡紫色 */
+        border: 1px solid rgba(220, 210, 230, 0.4);
+        /* 【核心修改】阴影调整为更浅、更柔和的效果 */
+        box-shadow: 0 15px 40px -10px rgba(210, 200, 220, 0.3);
         opacity: 0;
         transform: translateY(30px);
         animation: fadeInContainer 1s 0.2s forwards;
         height: 95vh;
         box-sizing: border-box;
-        /* 【核心修改】内部文字颜色反转为亮色 */
-        color: #e0e0e0;
+        /* 【核心修改】内部文字颜色反转为深色，保证可读性 */
+        color: #4c4c4c;
       }
 
       @keyframes fadeInContainer {
@@ -112,26 +113,29 @@
         height: 130px;
         border-radius: 50%;
         object-fit: cover;
-        border: 4px solid rgba(255, 255, 255, 0.8);
+        /* 【核心修改】边框颜色调整为淡雅的紫色 */
+        border: 4px solid rgba(180, 160, 200, 0.5);
         margin-bottom: 15px;
         animation: pulse 2.5s infinite;
       }
 
       @keyframes pulse {
         0% {
-          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+          /* 【核心修改】脉冲动画阴影颜色调整 */
+          box-shadow: 0 0 0 0 rgba(180, 160, 200, 0.4);
         }
         70% {
-          box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+          box-shadow: 0 0 0 15px rgba(180, 160, 200, 0);
         }
         100% {
-          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+          box-shadow: 0 0 0 0 rgba(180, 160, 200, 0);
         }
       }
 
       h1,
       h2 {
-        color: #ffffff;
+        /* 【核心修改】标题颜色改为深紫色，更突出 */
+        color: #6a5a7a;
       }
 
       h1 {
@@ -144,7 +148,8 @@
       }
 
       .subtitle {
-        color: rgba(255, 255, 255, 0.7);
+        /* 【核心修改】副标题颜色调整 */
+        color: #8c7f9a;
         font-style: italic;
         margin-top: 8px;
       }
@@ -169,7 +174,8 @@
       }
 
       .sidebar .section {
-        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        /* 【核心修改】分割线颜色调整 */
+        border-top: 1px solid rgba(180, 160, 200, 0.3);
         padding-top: 15px;
         margin-top: 15px;
       }
@@ -178,7 +184,8 @@
         content: '▋';
         margin-left: 8px;
         font-weight: 200;
-        color: #ffffff;
+        /* 【核心修改】光标颜色调整 */
+        color: #6a5a7a;
         animation: blink 1s step-end infinite;
       }
 
@@ -196,7 +203,8 @@
         font-family: 'Poppins', sans-serif;
         font-size: 1.6em;
         padding-bottom: 8px;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        /* 【核心修改】下划线颜色调整 */
+        border-bottom: 2px solid rgba(180, 160, 200, 0.4);
         margin: 0 0 15px 0;
       }
 
@@ -222,7 +230,7 @@
         position: relative;
         overflow: hidden;
         border-radius: 10px;
-        box-shadow: none;
+        box-shadow: none; /* 保持无阴影，让图片更纯粹 */
       }
 
       .gallery-item img {
