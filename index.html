@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>关于我 | 刘晏宁's Page</title>
+    <!-- 引入Google字体 -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet" />
+    <style>
+      /* --- 全局与动态背景 --- */
+      body {
+        font-family: 'Lato', sans-serif;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        color: #333; /* 外部默认文字颜色 */
+        background: linear-gradient(-45deg, #fef6ff, #f9efff, #f2e9f7, #f0f5fa);
+        background-size: 400% 400%;
+        animation: gradientBG 20s ease infinite;
+        overflow-x: hidden;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* --- 玻璃质感容器 --- */
+      .container {
+        max-width: 1400px;
+        width: calc(100% - 40px);
+        margin: 20px;
+        padding: 30px;
+        /* 【核心修改】内部背景改为更深、饱和度更高的半透明深紫色，形成强烈对比 */
+        background: rgba(85, 75, 95, 0.65);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 20px;
+        /* 【核心修改】精致的亮色边框，模拟“边缘光”效果 */
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        /* 【核心修改】增强的悬浮阴影，更深、更广 */
+        box-shadow: 0 20px 60px -10px rgba(50, 40, 60, 0.35);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInContainer 1s 0.2s forwards;
+        height: 95vh;
+        box-sizing: border-box;
+        /* 【核心修改】内部文字颜色反转为亮色 */
+        color: #e0e0e0;
+      }
+
+      @keyframes fadeInContainer {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* --- 双栏布局 --- */
+      .main-layout {
+        display: flex;
+        gap: 30px;
+        height: 100%;
+      }
+
+      .sidebar {
+        flex: 0 0 300px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .content-area {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .sidebar .section {
+        flex-shrink: 0;
+      }
+
+      /* --- 头部介绍 --- */
+      .header {
+        text-align: center;
+        padding-bottom: 15px;
+      }
+
+      .profile-image {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid rgba(255, 255, 255, 0.8);
+        margin-bottom: 15px;
+        animation: pulse 2.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        }
+      }
+
+      h1,
+      h2 {
+        color: #ffffff;
+      }
+
+      h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2em;
+        margin: 10px 0 5px 0;
+        font-weight: 700;
+        text-shadow: none;
+        min-height: 1.2em;
+      }
+
+      .subtitle {
+        color: rgba(255, 255, 255, 0.7);
+        font-style: italic;
+        margin-top: 8px;
+      }
+
+      .section {
+        margin-bottom: 25px;
+      }
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .content-area main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+
+      .section-gallery {
+        flex: 1;
+        min-height: 0;
+      }
+
+      .sidebar .section {
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        padding-top: 15px;
+        margin-top: 15px;
+      }
+
+      .typing-cursor::after {
+        content: '▋';
+        margin-left: 8px;
+        font-weight: 200;
+        color: #ffffff;
+        animation: blink 1s step-end infinite;
+      }
+
+      @keyframes blink {
+        from,
+        to {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      h2 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.6em;
+        padding-bottom: 8px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        margin: 0 0 15px 0;
+      }
+
+      p {
+        font-size: 1em;
+        line-height: 1.65;
+        margin: 0 0 1em 0;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* --- 图片画廊 --- */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 12px;
+        height: 100%;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: none;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition:
+          transform 0.4s ease,
+          filter 0.4s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1) rotate(1deg);
+        filter: brightness(1.1);
+      }
+
+      /* --- 响应式调整 --- */
+      @media (max-width: 992px) {
+        body {
+          padding: 0;
+          align-items: flex-start;
+        }
+        .container {
+          width: 100%;
+          margin: 0;
+          border-radius: 0;
+          height: auto;
+          min-height: 100vh;
+          box-sizing: border-box;
+        }
+        .main-layout {
+          flex-direction: column;
+          gap: 30px;
+          height: auto;
+        }
+        .sidebar {
+          flex: 1;
+          position: static;
+          top: auto;
+        }
+        .gallery {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: none;
+        }
+        .gallery-item {
+          aspect-ratio: 4 / 3;
+        }
+        h1 {
+          font-size: 2.2em;
+        }
+        h2 {
+          font-size: 1.5em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-layout">
+        <aside class="sidebar">
+          <header class="header">
+            <img
+              src="./picture/avatar1.jpg"
+              alt="个人头像"
+              class="profile-image" />
+            <h1>你好，我是 <span id="name-typing"></span></h1>
+            <p class="subtitle">一位热爱生活、探索美好的记录者</p>
+          </header>
+
+          <section class="section">
+            <h2>关于我</h2>
+            <p>
+              我是一个享受阳光也热爱思考的女孩。喜欢用相机捕捉光影，也喜欢在书本中寻找宁静。我相信，生活的美好藏在每一个不经意的瞬间里。
+            </p>
+            <p>
+              对时尚有自己的见解，偏爱简约舒适的风格，但也乐于尝试用不同的色彩和剪裁来表达心情。
+            </p>
+          </section>
+        </aside>
+
+        <div class="content-area">
+          <main>
+            <section class="section section-gallery">
+              <h2>生活瞬间</h2>
+              <div class="gallery">
+                <div class="gallery-item">
+                  <img
+                    src="./picture/1.png"
+                    alt="格纹大衣穿搭" />
+                </div>
+                <div class="gallery-item">
+                  <img
+                    src="./picture/2.png"
+                    alt="毕业瞬间" />
+                </div>
+                <div class="gallery-item">
+                  <img
+                    src="./picture/3.png"
+                    alt="户外清新时刻" />
+                </div>
+                <div class="gallery-item">
+                  <img
+                    src="./picture/4.png"
+                    alt="夜晚的宁静" />
+                </div>
+                <div class="gallery-item">
+                  <img
+                    src="./picture/6.png"
+                    alt="风格自拍" />
+                </div>
+                <div class="gallery-item">
+                  <img
+                    src="./picture/7.png"
+                    alt="休闲时刻" />
+                </div>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2>未来的路</h2>
+              <p>
+                告别一段旅程，是为了迎接新的风景。未来充满未知，但我会带着对生活的热忱和一颗好奇的心，继续走下去。
+              </p>
+            </section>
+          </main>
+
+          <!-- Footer has been removed -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 打字特效的JavaScript代码 -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const nameToType = '刘晏宁';
+        const nameElement = document.getElementById('name-typing');
+        let charIndex = 0;
+
+        nameElement.classList.add('typing-cursor');
+
+        function type() {
+          if (charIndex < nameToType.length) {
+            nameElement.textContent += nameToType.charAt(charIndex);
+            charIndex++;
+            setTimeout(type, 250);
+          } else {
+            nameElement.classList.remove('typing-cursor');
+          }
+        }
+
+        setTimeout(type, 1200);
+      });
+    </script>
+  </body>
+</html>
