@@ -31,7 +31,7 @@
         background: linear-gradient(-45deg, #fdf7ff, #fdeff9, #f8f2fe, #f7f9fd);
         background-size: 400% 400%;
         animation: gradientBG 20s ease infinite;
-        overflow-x: hidden;
+        overflow-y: auto;
       }
 
       @keyframes gradientBG {
@@ -48,7 +48,7 @@
 
       /* --- 玻璃质感容器 --- */
       .container {
-        max-width: 1400px;
+        max-width: 1800px;
         width: calc(100% - 40px);
         margin: 20px;
         padding: 30px;
@@ -68,6 +68,17 @@
         box-sizing: border-box;
         /* 【核心修改】内部文字颜色反转为深色，保证可读性 */
         color: #4c4c4c;
+      }
+
+      @media (min-width: 1400px) {
+        .container {
+          width: 1100px;
+        }
+      }
+      @media (min-width: 1900px) {
+        .container {
+          width: 1400px;
+        }
       }
 
       @keyframes fadeInContainer {
@@ -168,10 +179,14 @@
         min-height: 0;
       }
 
+      /* === 修改开始 === */
       .section-gallery {
         flex: 1;
         min-height: 0;
+        display: flex; /* 新增 */
+        flex-direction: column; /* 新增 */
       }
+      /* === 修改结束 === */
 
       .sidebar .section {
         /* 【核心修改】分割线颜色调整 */
@@ -218,13 +233,16 @@
       }
 
       /* --- 图片画廊 --- */
+      /* === 修改开始 === */
       .gallery {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 12px;
-        height: 100%;
+        flex: 1; /* 修改：从 height: 100% 替换为此行 */
+        min-height: 0; /* 新增：配合flex布局防止压缩问题 */
       }
+      /* === 修改结束 === */
 
       .gallery-item {
         position: relative;
@@ -298,15 +316,14 @@
               src="./picture/avatar.jpg"
               alt="个人头像"
               class="profile-image" />
-            <h1><span id="name-typing"></span></h1>
-            <p class="subtitle">一位热爱生活、探索美好的记录者</p>
+            <h1>你好，我是晏宁</h1>
+            <p class="subtitle">一个爱笑的女孩</p>
           </header>
 
           <section class="section">
-            <h2>关于我</h2>
-            <p>
-              我是一个浸染在温柔里的灵魂，对世界怀有无限的善意与好奇。相信微笑的力量，热爱相遇的每一个故事，享受与朋友欢聚的喧嚣，也安于独自沉淀的静谧。愿我能如一缕清风，所行之处，皆带来温暖与明亮。
-            </p>
+            <h2>我想对你说</h2>
+            <p id="about-me-typing"></p>
+            <p style="text-align: right; font-weight: 550">--李银超</p>
           </section>
         </aside>
 
@@ -347,13 +364,6 @@
                 </div>
               </div>
             </section>
-
-            <section class="section">
-              <h2>未来的路</h2>
-              <p>
-                告别一段旅程，是为了迎接新的风景。未来充满未知，但我会带着对生活的热忱和一颗好奇的心，继续走下去。
-              </p>
-            </section>
           </main>
         </div>
       </div>
@@ -362,19 +372,20 @@
     <!-- 打字特效的JavaScript代码 -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const nameToType = '你好，我是刘晏宁';
-        const nameElement = document.getElementById('name-typing');
+        const textToType =
+          '你是一个温柔，善良的女孩，你的微笑总能在我伤心的时候给我给我冲破阴霾的力量，你的声音总在我身旁萦绕，让我时时刻刻感到你的存在，愿你开开心心，愿余生有你有我。';
+        const targetElement = document.getElementById('about-me-typing');
         let charIndex = 0;
 
-        nameElement.classList.add('typing-cursor');
+        targetElement.classList.add('typing-cursor');
 
         function type() {
-          if (charIndex < nameToType.length) {
-            nameElement.textContent += nameToType.charAt(charIndex);
+          if (charIndex < textToType.length) {
+            targetElement.textContent += textToType.charAt(charIndex);
             charIndex++;
-            setTimeout(type, 250);
+            setTimeout(type, 150); // 您可以调整这里的数字来改变打字速度
           } else {
-            nameElement.classList.remove('typing-cursor');
+            targetElement.classList.remove('typing-cursor');
           }
         }
 
