@@ -179,14 +179,12 @@
         min-height: 0;
       }
 
-      /* === 修改开始 === */
       .section-gallery {
         flex: 1;
         min-height: 0;
-        display: flex; /* 新增 */
-        flex-direction: column; /* 新增 */
+        display: flex;
+        flex-direction: column;
       }
-      /* === 修改结束 === */
 
       .sidebar .section {
         /* 【核心修改】分割线颜色调整 */
@@ -233,16 +231,14 @@
       }
 
       /* --- 图片画廊 --- */
-      /* === 修改开始 === */
       .gallery {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 12px;
-        flex: 1; /* 修改：从 height: 100% 替换为此行 */
-        min-height: 0; /* 新增：配合flex布局防止压缩问题 */
+        flex: 1;
+        min-height: 0;
       }
-      /* === 修改结束 === */
 
       .gallery-item {
         position: relative;
@@ -291,12 +287,12 @@
           top: auto;
         }
         .gallery {
-          /* 【关键修改】将网格列数改为1，实现单列布局 */
           grid-template-columns: 1fr;
           grid-template-rows: none;
         }
+        /* === 修改：为移动端图片设置固定高度 === */
         .gallery-item {
-          aspect-ratio: 4 / 3;
+          height: 450px;
         }
         h1 {
           font-size: 2.2em;
